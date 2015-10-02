@@ -40,7 +40,7 @@ for i in range(1, lastBuild):
 			changers = []
 			for w in range(0, len(d['changeSet']['items'])):
 				changers.append(d['changeSet']['items'][w]['author']['fullName'])
-			for changer in changers:
+			for changer in set(changers):
 				addToList(changer)
 	except:
 		pass
