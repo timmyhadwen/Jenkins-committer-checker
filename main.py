@@ -1,5 +1,6 @@
 import requests
 import json
+import sys
 
 list = []
 count = [];
@@ -23,9 +24,10 @@ def printSortedList():
 			if(count[j] == i):
 				 print(list[j] + " " + str(count[j]))
 
-url = "http://deco2800.uqcloud.net/jenkins/job/Mine/lastBuild/api/json"
-url_no = "http://deco2800.uqcloud.net/jenkins/job/Mine/"
-r = requests.post(url)
+
+url_no = "http://deco2800.uqcloud.net/jenkins/job/" + str(sys.argv[1]) + "/"
+print(url_no)
+r = requests.post(url_no + "lastBuild/api/json")
 data = r.json();
 lastBuild = data['number']
 
