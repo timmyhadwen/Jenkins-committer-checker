@@ -37,10 +37,11 @@ for i in range(1, lastBuild):
 	try:
 		x = requests.post(url_no + str(i) + "/api/json")
 		d = x.json()
-		print(str(i) + " " + d['result'])
+		print("\n" + str(i) + " " + d['result']),
 		if(d['result'] == 'FAILURE'):
 			changers = []
 			for w in range(0, len(d['changeSet']['items'])):
+                                print(d['changeSet']['items'][w]['author']['fullName'] + " "),
 				changers.append(d['changeSet']['items'][w]['author']['fullName'])
 			for changer in set(changers):
 				addToList(changer)
