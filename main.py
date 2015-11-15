@@ -30,10 +30,14 @@ print(url_no)
 r = requests.post(url_no + "lastBuild/api/json")
 data = r.json();
 lastBuild = data['number']
+starting_build = 1
+print(len(sys.argv[2]))
+if len(sys.argv) == 3 and int(sys.argv[2]) > 0 and int(sys.argv[2]) <= lastBuild:
+	starting_build = int(sys.argv[2])
+print("Starting from build " + str(starting_build))
+print("There are " + str(lastBuild - starting_build + 1) + " builds to check")
 
-print("There are " + str(lastBuild) + " builds to check")
-
-for i in range(1, lastBuild):
+for i in range(starting_build, lastBuild):
 	try:
 		x = requests.post(url_no + str(i) + "/api/json")
 		d = x.json()
