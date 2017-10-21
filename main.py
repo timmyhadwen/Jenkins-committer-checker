@@ -19,7 +19,7 @@ def printList():
 def printSortedList():
 	print("##########################################################")
 	print("The following people broke the build:")
-	for i in range(0, max(count)):
+	for i in range(0, 100):
 		for j in range(0, len(list)):
 			if(count[j] == i):
 				 print(list[j] + " " + str(count[j]))
@@ -52,5 +52,4 @@ for i in range(starting_build, lastBuild):
 	except:
 		pass
 printSortedList()
-
 
